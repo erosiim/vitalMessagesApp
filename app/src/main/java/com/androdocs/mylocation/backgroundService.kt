@@ -36,7 +36,7 @@ class backgroundService: Service() {
     var xold = 0.0
     var yold = 0.0
     var zold = 0.0
-    var threadShould = 1850.0
+    var threadShould = 1900.0
     var oldtime: Long = 0
 
     override fun onBind(intent: Intent): IBinder? {
@@ -86,7 +86,7 @@ class backgroundService: Service() {
                         .create()
 
                     val retrofit =
-                        Retrofit.Builder().baseUrl("http://192.168.43.87:5000/")
+                        Retrofit.Builder().baseUrl("http://104.198.143.74:5000")
                             .addConverterFactory(GsonConverterFactory.create(gson)).build()
 
                     val restClient = retrofit.create(RestClient::class.java)
@@ -115,7 +115,7 @@ class backgroundService: Service() {
 
 
                     var v=getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-                    v.vibrate(500)
+                    v.vibrate(550)
                     Toast.makeText(applicationContext,"Te has caído",Toast.LENGTH_LONG).show()
                 }
             }
